@@ -1,3 +1,4 @@
+
 <div align="center">
 <p>
    <a align="left" href="https://ultralytics.com/yolov5" target="_blank">
@@ -108,7 +109,7 @@ results.print()  # or .show(), .save(), .crop(), .pandas(), etc.
 <summary>Inference with detect.py</summary>
 
 `detect.py` runs inference on a variety of sources, downloading [models](https://github.com/ultralytics/yolov5/tree/master/models) automatically from
-the latest YOLOv5 [release](https://github.com/ultralytics/yolov5/releases) and saving results to `runs/detect`.
+the latest YOLOv5 [release](https://github.com/ultralytics/yolov5/releases) and saving results to `runs/detect` or you can now press `space` to capture the prediction video and saved to the `static` folder.
 
 ```bash
 python detect.py --source 0  # webcam
@@ -118,6 +119,21 @@ python detect.py --source 0  # webcam
                           path/*.jpg  # glob
                           'https://youtu.be/Zgi9g1ksQHc'  # YouTube
                           'rtsp://example.com/media.mp4'  # RTSP, RTMP, HTTP stream
+```
+
+</details>
+
+<details>
+<summary>Flask website</summary>
+
+run `app.py` separately from `detect.py` then open http://localhost:5000 on browser.
+
+```bash
+python app.py
+```
+or
+```bash
+flask run
 ```
 
 </details>
@@ -148,21 +164,21 @@ python train.py --data coco.yaml --cfg yolov5n.yaml --weights '' --batch-size 12
 <details open>
 <summary>Tutorials</summary>
 
-- [Train Custom Data](https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data)  🚀 RECOMMENDED
-- [Tips for Best Training Results](https://github.com/ultralytics/yolov5/wiki/Tips-for-Best-Training-Results)  ☘️
+- [Train Custom Data](https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data)  🚀 RECOMMENDED
+- [Tips for Best Training Results](https://github.com/ultralytics/yolov5/wiki/Tips-for-Best-Training-Results)  ☘️
   RECOMMENDED
 - [ClearML Logging](https://github.com/ultralytics/yolov5/tree/master/utils/loggers/clearml) 🌟 NEW
 - [Weights & Biases Logging](https://github.com/ultralytics/yolov5/issues/1289)
-- [Roboflow for Datasets, Labeling, and Active Learning](https://github.com/ultralytics/yolov5/issues/4975)  🌟 NEW
+- [Roboflow for Datasets, Labeling, and Active Learning](https://github.com/ultralytics/yolov5/issues/4975)  🌟 NEW
 - [Multi-GPU Training](https://github.com/ultralytics/yolov5/issues/475)
-- [PyTorch Hub](https://github.com/ultralytics/yolov5/issues/36)  ⭐ NEW
+- [PyTorch Hub](https://github.com/ultralytics/yolov5/issues/36)  ⭐ NEW
 - [TFLite, ONNX, CoreML, TensorRT Export](https://github.com/ultralytics/yolov5/issues/251) 🚀
 - [Test-Time Augmentation (TTA)](https://github.com/ultralytics/yolov5/issues/303)
 - [Model Ensembling](https://github.com/ultralytics/yolov5/issues/318)
 - [Model Pruning/Sparsity](https://github.com/ultralytics/yolov5/issues/304)
 - [Hyperparameter Evolution](https://github.com/ultralytics/yolov5/issues/607)
-- [Transfer Learning with Frozen Layers](https://github.com/ultralytics/yolov5/issues/1314)  ⭐ NEW
-- [Architecture Summary](https://github.com/ultralytics/yolov5/issues/6998)  ⭐ NEW
+- [Transfer Learning with Frozen Layers](https://github.com/ultralytics/yolov5/issues/1314)  ⭐ NEW
+- [Architecture Summary](https://github.com/ultralytics/yolov5/issues/6998)  ⭐ NEW
 
 </details>
 
