@@ -108,6 +108,7 @@ def run(
     # Run inference
     model.warmup(imgsz=(1 if pt else bs, 3, *imgsz))  # warmup
     seen, windows, dt = 0, [], [0.0, 0.0, 0.0]
+    img_counter = 0
     for path, im, im0s, vid_cap, s in dataset:
         t1 = time_sync()
         im = torch.from_numpy(im).to(device)
@@ -179,7 +180,17 @@ def run(
                     cv2.namedWindow(str(p), cv2.WINDOW_NORMAL | cv2.WINDOW_KEEPRATIO)  # allow window resize (Linux)
                     cv2.resizeWindow(str(p), im0.shape[1], im0.shape[0])
                 cv2.imshow(str(p), im0)
-                cv2.waitKey(1)  # 1 millisecond
+                k = cv2.waitKey(1)
+                if k%256 == 32:
+                    # SPACE pressed
+                    parent_dir = os.getcwd()
+                    directory = "static/"
+                    path = os.path.join(parent_dir, directory)
+                    img_name = "opencv_frame_{}.png".format(img_counter)
+                    img_path = path + img_name
+                    cv2.imwrite(img_path, im0)
+                    img_counter += 1
+                    print("{} written!".format(img_name))
 
             # Save results (image with detections)
             if save_img:
